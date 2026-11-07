@@ -166,6 +166,25 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media (max-width:900px){.awards{grid-template-columns:1fr 1fr}.award.gold{grid-column:1/-1}}
 @media (max-width:640px){.awards{grid-template-columns:1fr}}
 .hero p.lead,.job li,.proj .card p,.course p,.award .ad{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+.fp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.fp-stats div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.fp-stats b{display:block;font:700 26px var(--mono)}
+.fp-stats span{font-size:12.5px;color:var(--muted)}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr 1.5fr 1fr;gap:12px}
+.fp-reg{background:#0a1019;border:1px solid var(--line);border-top:2px solid var(--c);border-radius:12px;padding:14px}
+.fp-h{display:flex;justify-content:space-between;font:700 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--c);margin-bottom:10px}
+.fp-n{color:var(--muted)}
+.fp-list{display:flex;flex-wrap:wrap;gap:6px}
+.fp-c{font:500 12px var(--mono);padding:5px 9px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);display:flex;flex-direction:column}
+.fp-c small{color:var(--muted);font-size:10px}
+.fp-c.cl{border-color:rgba(34,211,238,.5);color:var(--cyan)}
+.fp-c.hq{border-color:rgba(251,191,36,.6);color:var(--amber);flex-direction:row;gap:6px;align-items:center}
+.fp-c i{font-style:normal;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;background:rgba(251,191,36,.15);padding:1px 5px;border-radius:4px}
+.fp-extra{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font:500 11.5px var(--mono);color:var(--muted)}
+.fp-key{display:flex;align-items:center;gap:6px}
+.dot.cl{width:10px;height:10px;border-radius:3px;border:1px solid var(--cyan);display:inline-block}
+@media (max-width:900px){.fp-grid{grid-template-columns:1fr 1fr}.fp-stats{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.fp-grid{grid-template-columns:1fr}}
 .blink{animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:900px){.courses{grid-template-columns:1fr 1fr}}
@@ -356,21 +375,63 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </section>
 
-  <!-- PAISES -->
-  <section class="panel">
-    <span class="tag t-green" data-en="International footprint">Footprint internacional</span>
-    <h2><span class="cmd">show</span> ip bgp neighbors <span style="color:var(--muted);font-weight:400;font-size:15px" data-en="— clients served">— clientes atendidos</span></h2>
-    <div class="flagrow">
-      <span class="country" data-en="United States<small>NA</small>">Estados Unidos<small>NA</small></span>
-      <span class="country" data-en="Mexico<small>LATAM</small>">México<small>LATAM</small></span>
-      <span class="country">Colombia<small>LATAM</small></span>
-      <span class="country" data-en="Dominican Rep.<small>LATAM</small>">Rep. Dominicana<small>LATAM</small></span>
-      <span class="country" data-en="Brazil<small>LATAM</small>">Brasil<small>LATAM</small></span>
-      <span class="country" data-en="United Kingdom<small>EMEA</small>">Reino Unido<small>EMEA</small></span>
-      <span class="country" data-en="France<small>EMEA</small>">Francia<small>EMEA</small></span>
-      <span class="country" data-en="Netherlands<small>EMEA</small>">Países Bajos<small>EMEA</small></span>
-      <span class="country" data-en="Germany<small>EMEA</small>">Alemania<small>EMEA</small></span>
-      <span class="country" data-en="South Africa<small>EMEA</small>">Sudáfrica<small>EMEA</small></span>
+  <!-- FOOTPRINT -->
+  <section class="panel" id="footprint">
+    <span class="tag t-green" data-en="Global footprint">Footprint internacional</span>
+    <h2><span class="cmd">show</span> ip bgp summary <span style="color:var(--muted);font-weight:400;font-size:15px" data-en="— Conduent sites &amp; clients">— sitios de Conduent y clientes</span></h2>
+    <div class="fp-stats">
+      <div><b style="color:var(--cyan)">24</b><span data-en="countries with Conduent operations">países con operación de Conduent</span></div>
+      <div><b style="color:var(--green)">161</b><span data-en="sites (158 leased · 3 owned)">sitios (158 arrendados · 3 propios)</span></div>
+      <div><b style="color:var(--violet)">~56K</b><span data-en="associates worldwide">colaboradores en el mundo</span></div>
+      <div><b style="color:var(--amber)">10</b><span data-en="countries where I presented to clients">países donde he presentado a clientes</span></div>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-reg" style="--c:var(--cyan)">
+        <div class="fp-h"><span data-en="North America">Norteamérica</span><span class="fp-n">3</span></div>
+        <div class="fp-list">
+          <div class="fp-c cl"><span data-en="United States">Estados Unidos</span><small>Florham Park, NJ (HQ) · KY · TX</small></div>
+          <div class="fp-c"><span data-en="Canada">Canadá</span></div>
+          <div class="fp-c cl"><span data-en="Mexico">México</span></div>
+        </div>
+      </div>
+      <div class="fp-reg" style="--c:var(--green)">
+        <div class="fp-h"><span data-en="Latin America &amp; Caribbean">Latinoamérica y Caribe</span><span class="fp-n">5</span></div>
+        <div class="fp-list">
+          <div class="fp-c hq"><span>Guatemala</span><i data-en="home">sede</i></div>
+          <div class="fp-c"><span>Jamaica</span></div>
+          <div class="fp-c cl"><span>Colombia</span></div>
+          <div class="fp-c cl"><span data-en="Brazil">Brasil</span></div>
+          <div class="fp-c"><span data-en="Peru">Perú</span></div>
+        </div>
+      </div>
+      <div class="fp-reg" style="--c:var(--violet)">
+        <div class="fp-h"><span data-en="Europe &amp; Middle East">Europa y Medio Oriente</span><span class="fp-n">10</span></div>
+        <div class="fp-list">
+          <div class="fp-c cl"><span data-en="United Kingdom">Reino Unido</span></div>
+          <div class="fp-c cl"><span data-en="France">Francia</span></div>
+          <div class="fp-c cl"><span data-en="Germany">Alemania</span></div>
+          <div class="fp-c cl"><span data-en="Netherlands">Países Bajos</span></div>
+          <div class="fp-c"><span data-en="Italy">Italia</span></div>
+          <div class="fp-c"><span data-en="Switzerland">Suiza</span></div>
+          <div class="fp-c"><span data-en="Poland">Polonia</span></div>
+          <div class="fp-c"><span data-en="Czech Republic">Rep. Checa</span></div>
+          <div class="fp-c"><span data-en="Romania">Rumania</span></div>
+          <div class="fp-c"><span data-en="Türkiye">Turquía</span></div>
+        </div>
+      </div>
+      <div class="fp-reg" style="--c:var(--amber)">
+        <div class="fp-h"><span data-en="Asia Pacific">Asia-Pacífico</span><span class="fp-n">3</span></div>
+        <div class="fp-list">
+          <div class="fp-c"><span>India</span></div>
+          <div class="fp-c"><span data-en="Philippines">Filipinas</span></div>
+          <div class="fp-c"><span data-en="Malaysia">Malasia</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="fp-extra">
+      <span class="fp-key"><i class="dot cl"></i><span data-en="Also a client country in my proposals">También país de clientes en mis propuestas</span></span>
+      <span class="fp-key" data-en="Other client countries: Dominican Rep. · South Africa">Otros países de clientes: Rep. Dominicana · Sudáfrica</span>
+      <span class="fp-key"><span data-en="Source:">Fuente:</span>&nbsp;<a href="https://www.sec.gov/Archives/edgar/data/1677703/000167770325000029/cndt-20241231.htm" target="_blank" rel="noopener">Conduent 10-K FY2024</a>&nbsp;·&nbsp;<a href="https://conduent.jibeapply.com/job-locations" target="_blank" rel="noopener">Conduent Careers</a></span>
     </div>
   </section>
 
