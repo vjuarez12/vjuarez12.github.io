@@ -210,6 +210,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .fp-mini span{font-size:13px;color:#b6c3d4}
 .fp-src{margin-top:12px;font:500 11.5px var(--mono);color:var(--muted)}
 @media (max-width:640px){.fp-mini{grid-template-columns:1fr}.fp-stats{grid-template-columns:1fr!important}}
+.sites{grid-template-columns:repeat(3,1fr)!important}
+.site.home{border-color:rgba(251,191,36,.45);background:linear-gradient(135deg,rgba(251,191,36,.07),#0a1019 60%)}
+.site.home .cc{color:var(--amber);border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.08)}
+.remote{margin-top:18px;border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:16px;background:#0a1019}
+.remote-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.remote-h b{font-size:15px}
+@media (max-width:900px){.sites{grid-template-columns:1fr 1fr!important}}
+@media (max-width:640px){.sites{grid-template-columns:1fr!important}}
 .blink{animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:900px){.courses{grid-template-columns:1fr 1fr}}
@@ -269,7 +277,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <span class="k">Protocols</span>    : BGP · OSPF · EIGRP · IS-IS · IPv6 · MPLS L3VPN · SD-WAN · DMVPN · VXLAN
 <span class="k">Platforms</span>    : Cisco IOS-XE/NX-OS · C8000v · Palo Alto · Fortinet · F5 · MikroTik · AWS
 <span class="k">Automation</span>   : Ansible · Python · NETCONF/RESTCONF · Docker · AI agents (Claude Code)
-<span class="k">Regions</span>      : NA · LATAM · EMEA · <span class="v">10 countries</span> served
+<span class="k">Regions</span>      : NA · LATAM · EMEA · APAC · <span class="v">24 countries</span> served · <span class="v">6</span> on site
 <span class="p">VJ-CORE#</span> <span class="blink">█</span></pre>
     </div>
   </section>
@@ -290,8 +298,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
     <div class="kpi">
       <div class="lbl"><span data-en="Reach">Alcance</span><span style="color:var(--green)">Global</span></div>
-      <div class="num" style="color:var(--green)">10</div>
-      <div class="sub" data-en="countries served · 15-person global team">países con clientes atendidos · equipo de 15 personas</div>
+      <div class="num" style="color:var(--green)">24</div>
+      <div class="sub" data-en="countries served (6 on site) · 15-person global team">países atendidos (6 en sitio) · equipo de 15 personas</div>
       <div class="meter"><b style="width:70%;background:var(--green)"></b></div>
     </div>
     <div class="kpi">
@@ -403,13 +411,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <!-- FOOTPRINT -->
   <section class="panel" id="footprint">
     <span class="tag t-green" data-en="Field work">Trabajo en campo</span>
-    <h2><span class="cmd">show</span> ip bgp neighbors <span style="color:var(--muted);font-weight:400;font-size:15px" data-en="— where I've worked on site">— dónde he trabajado en sitio</span></h2>
+    <h2><span class="cmd">show</span> ip bgp neighbors <span style="color:var(--muted);font-weight:400;font-size:15px" data-en="— on site and remote">— en sitio y en remoto</span></h2>
     <div class="fp-stats">
-      <div><b style="color:var(--cyan)">5</b><span data-en="countries with on-site projects">países con proyectos en sitio</span></div>
-      <div><b style="color:var(--green)">10</b><span data-en="countries with clients I've served">países con clientes atendidos</span></div>
-      <div><b style="color:var(--violet)">24</b><span data-en="countries in Conduent's global network">países en la red global de Conduent</span></div>
+      <div><b style="color:var(--cyan)">6</b><span data-en="countries with on-site projects">países con proyectos en sitio</span></div>
+      <div><b style="color:var(--green)">24</b><span data-en="Conduent countries served remotely">países de Conduent atendidos en remoto</span></div>
+      <div><b style="color:var(--violet)">161</b><span data-en="Conduent sites in my remote scope">sitios de Conduent en mi alcance remoto</span></div>
     </div>
     <div class="sites">
+      <div class="site home">
+        <div class="site-h"><span class="cc">GT</span><b>Guatemala</b></div>
+        <div class="stags"><span class="stag" style="--c:var(--amber)" data-en="Home base">Base</span><span class="stag" style="--c:var(--blue)" data-en="On-site support">Soporte en sitio</span><span class="stag" style="--c:var(--cyan)" data-en="Global design">Diseño global</span></div>
+        <p data-en="My home base: from here I design and support Conduent's global network and serve Conduent's operations in the country on site.">Mi base de operaciones: desde aquí diseño y doy soporte a la red global de Conduent y atiendo en sitio las operaciones de Conduent en el país.</p>
+      </div>
       <div class="site">
         <div class="site-h"><span class="cc">US</span><b data-en="United States">Estados Unidos</b></div>
         <div class="stags"><span class="stag" style="--c:var(--green)" data-en="New site">Nuevo sitio</span><span class="stag" style="--c:var(--cyan)" data-en="Migration">Migración</span></div>
@@ -437,26 +450,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       </div>
     </div>
 
-    <div class="sub-h" style="margin-top:22px" data-en="Clients served remotely — design, proposals and migrations">Clientes atendidos en remoto — diseño, propuestas y migraciones</div>
-    <div class="flagrow">
-      <span class="country" data-en="United Kingdom">Reino Unido</span>
-      <span class="country" data-en="France">Francia</span>
-      <span class="country" data-en="Germany">Alemania</span>
-      <span class="country" data-en="Netherlands">Países Bajos</span>
-      <span class="country" data-en="South Africa">Sudáfrica</span>
-      <span class="country" data-en="Dominican Rep.">Rep. Dominicana</span>
-    </div>
-
-    <details class="fp-more">
-      <summary data-en="Conduent's global network — 24 countries · 161 sites · ~56K associates">Red global de Conduent — 24 países · 161 sitios · ~56K colaboradores</summary>
+    <div class="remote">
+      <div class="remote-h">
+        <span class="tag t-violet" data-en="Remote">Remoto</span>
+        <b data-en="I've served every Conduent location remotely — 24 countries · 161 sites">He atendido en remoto todas las ubicaciones de Conduent — 24 países · 161 sitios</b>
+      </div>
       <div class="fp-mini">
-        <div><b data-en="North America">Norteamérica</b><span data-en="United States (HQ Florham Park, NJ) · Canada · Mexico">Estados Unidos (HQ Florham Park, NJ) · Canadá · México</span></div>
-        <div><b data-en="Latin America &amp; Caribbean">Latinoamérica y Caribe</b><span data-en="Guatemala (my base) · Jamaica · Colombia · Brazil · Peru">Guatemala (mi base) · Jamaica · Colombia · Brasil · Perú</span></div>
+        <div><b data-en="North America">Norteamérica</b><span data-en="United States · Canada · Mexico">Estados Unidos · Canadá · México</span></div>
+        <div><b data-en="Latin America &amp; Caribbean">Latinoamérica y Caribe</b><span data-en="Guatemala · Jamaica · Colombia · Brazil · Peru">Guatemala · Jamaica · Colombia · Brasil · Perú</span></div>
         <div><b data-en="Europe &amp; Middle East">Europa y Medio Oriente</b><span data-en="UK · France · Germany · Netherlands · Italy · Switzerland · Poland · Czech Republic · Romania · Türkiye">Reino Unido · Francia · Alemania · Países Bajos · Italia · Suiza · Polonia · Rep. Checa · Rumania · Turquía</span></div>
         <div><b data-en="Asia Pacific">Asia-Pacífico</b><span data-en="India · Philippines · Malaysia">India · Filipinas · Malasia</span></div>
       </div>
-      <div class="fp-src"><span data-en="Source:">Fuente:</span> <a href="https://www.sec.gov/Archives/edgar/data/1677703/000167770325000029/cndt-20241231.htm" target="_blank" rel="noopener">Conduent 10-K FY2024</a> · <a href="https://conduent.jibeapply.com/job-locations" target="_blank" rel="noopener">Conduent Careers</a></div>
-    </details>
+      <div class="fp-src"><span data-en="Also proposals for clients in South Africa and the Dominican Republic. Conduent footprint source:">También propuestas para clientes en Sudáfrica y República Dominicana. Fuente de la red de Conduent:</span> <a href="https://www.sec.gov/Archives/edgar/data/1677703/000167770325000029/cndt-20241231.htm" target="_blank" rel="noopener">10-K FY2024</a> · <a href="https://conduent.jibeapply.com/job-locations" target="_blank" rel="noopener">Conduent Careers</a></div>
+    </div>
   </section>
 
   <!-- EXPERIENCIA -->
